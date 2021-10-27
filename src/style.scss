@@ -1,5 +1,10 @@
-$body-color: red;
+$body-color: #8e8e8e;
 
 body {
-  color: $body-color;
+  #main{
+      width: 90%;
+      max-width: 600px;
+      margin: auto, 50px;
+      background-color: aquamarine;
+  }
 }
