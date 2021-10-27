@@ -18,14 +18,17 @@ Create a simple HTML list of To Do tasks using webpack to bundle JavaScript.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+    - node
 
 ### Setup
+-npm install
+-Clone the repository to your local machine.
+-npm install webpack webpack-cli --save-dev
+
 
 ### Install
 
 ### Usage
-
-### Run tests
 
 ### Deployment
 
