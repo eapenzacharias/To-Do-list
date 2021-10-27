@@ -1,6 +1,7 @@
 # To Do list
 
 > Build a To Do List JavaScript application
+![app-screenshot](https://user-images.githubusercontent.com/49812651/139152499-f4223364-7ac6-4e0c-a16b-5bd987e344d6.png)
 
 Create a simple HTML list of To Do tasks using webpack to bundle JavaScript.
 
@@ -18,18 +19,20 @@ Create a simple HTML list of To Do tasks using webpack to bundle JavaScript.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+    - node
 
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
+```
+- npm install
+- Clone the repository to your local machine.
+- npm install webpack webpack-cli --save-dev
+```
 ### Deployment
-
-
+ run:
+ ```
+ npm run build
+ ```
+ and deploy the files in the ```dist``` folder
 
 ## Authors
 
