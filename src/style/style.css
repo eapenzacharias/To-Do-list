@@ -1,12 +1,11 @@
 body .project {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   width: 100%;
   font-family: Helvetica, sans-serif;
-  color: #333333;
+  color: #333;
 }
 
 body #main {
@@ -14,17 +13,16 @@ body #main {
   max-width: 600px;
   margin: 50px auto;
   padding: 0;
-  -webkit-box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
-          box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+  -webkit-box-shadow: 0 4px 8px 0 #0003, 0 6px 20px 0 #00000030;
+  box-shadow: 0 4px 8px 0 #0003, 0 6px 20px 0 #00000030;
   font-size: 16px;
   font-weight: 300;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 body #main h1 {
@@ -39,7 +37,7 @@ body #main #task-input {
   border: none;
   border-bottom: 0.2px solid #b2b2b2;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: #7a7a7a;
   font-style: italic;
   font-size: 16px;
@@ -78,10 +76,9 @@ body #main #clear-btn {
   background-color: #f8f8f8;
   border-bottom: 0.2px solid #b2b2b2;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 16px;
   font-weight: 300;
   color: #7a7a7a;
   padding: 15px;
 }
-/*# sourceMappingURL=style.css.map */

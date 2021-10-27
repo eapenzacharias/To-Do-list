@@ -1,4 +1,3 @@
-//import _ from 'lodash';
 import './style/style.css';
 import { getElement, createElement } from './queries.js';
 

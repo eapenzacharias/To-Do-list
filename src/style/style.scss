@@ -1,5 +1,5 @@
 $cell-color: #b2b2b2;
-$text-color: #333333;
+$text-color: #333;
 $second-text: #7a7a7a;
 
 body {
@@ -10,16 +10,18 @@ body {
     font-family: Helvetica, sans-serif;
     color: $text-color;
   }
+
   #main {
     width: 90%;
     max-width: 600px;
     margin: 50px auto;
     padding: 0;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    box-shadow: 0 4px 8px 0 #0003, 0 6px 20px 0 #00000030;
     font-size: 16px;
     font-weight: 300;
     display: flex;
     flex-direction: column;
+
     h1 {
       border-bottom: 0.5px solid $cell-color;
       font-size: 18px;
@@ -27,6 +29,7 @@ body {
       padding: 15px 10px;
       margin: 0;
     }
+
     #task-input {
       border: none;
       border-bottom: 0.2px solid $cell-color;
@@ -38,19 +41,23 @@ body {
       margin: 0;
       width: 100%;
     }
+
     #tasks {
       list-style-type: none;
       width: 100%;
       margin: 0;
       padding: 0;
+
       li {
         border-bottom: 0.2px solid $cell-color;
         padding: 15px 10px;
         position: relative;
         margin: 0;
+
         input {
           margin-right: 15px;
         }
+
         .task-options {
           position: absolute;
           right: 15px;
@@ -59,9 +66,10 @@ body {
         }
       }
     }
+
     #clear-btn {
-        border: none;
-        background-color: #f8f8f8;
+      border: none;
+      background-color: #f8f8f8;
       border-bottom: 0.2px solid $cell-color;
       box-sizing: border-box;
       font-size: 16px;
