@@ -1,5 +1,5 @@
 //import _ from 'lodash';
-import './style.scss';
+import './style/style.css';
 import { getElement, createElement } from './queries.js';
 
 const tasks = [
@@ -10,7 +10,7 @@ const tasks = [
   },
   {
     description: 'Lorem 2 ipsum dolor sit amet.',
-    completed: true,
+    completed: false,
     index: 2,
   },
   {
@@ -20,13 +20,18 @@ const tasks = [
   },
   {
     description: 'Lorem 4 ipsum dolor sit amet.',
-    completed: true,
+    completed: false,
     index: 4,
   },
   {
     description: 'Lorem 5 ipsum dolor sit amet.',
     completed: true,
     index: 5,
+  },
+  {
+    description: 'Lorem 6 ipsum dolor sit amet.',
+    completed: false,
+    index: 6,
   },
 ];
 
@@ -39,7 +44,7 @@ function printTasks(task) {
   description.innerHTML = task.description;
   const menu = createElement('span');
   menu.innerHTML = '⋮';
-  menu.class = 'task-options';
+  menu.className = 'task-options';
   li.appendChild(done);
   li.appendChild(description);
   li.appendChild(menu);
@@ -47,8 +52,3 @@ function printTasks(task) {
 }
 
 tasks.forEach((task) => printTasks(task));
-
-const test = createElement('h2');
-test.textContent = 'Hello';
-
-getElement('#main').appendChild(test);
