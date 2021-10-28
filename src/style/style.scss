@@ -53,6 +53,7 @@ body {
         padding: 15px 10px;
         position: relative;
         margin: 0;
+
         input {
           margin-right: 15px;
         }
@@ -64,6 +65,7 @@ body {
           color: $cell-color;
         }
       }
+
       .completed {
         background-color: #fcfcfc;
         color: $second-text;
