@@ -26,7 +26,7 @@ body {
       border-bottom: 0.5px solid $cell-color;
       font-size: 18px;
       font-weight: 400;
-      padding: 15px 10px;
+      padding: 20px 10px 15px 10px;
       margin: 0;
     }
 
@@ -37,7 +37,7 @@ body {
       color: $second-text;
       font-style: italic;
       font-size: 16px;
-      padding: 10px 10px;
+      padding: 15px 10px;
       margin: 0;
       width: 100%;
     }
@@ -64,6 +64,11 @@ body {
           font-weight: 900;
           color: $cell-color;
         }
+      }
+
+      .completed {
+        background-color: #fcfcfc;
+        color: $second-text;
       }
     }
 

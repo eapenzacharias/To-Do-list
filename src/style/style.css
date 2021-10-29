@@ -29,7 +29,7 @@ body #main h1 {
   border-bottom: 0.5px solid #b2b2b2;
   font-size: 18px;
   font-weight: 400;
-  padding: 15px 10px;
+  padding: 20px 10px 15px 10px;
   margin: 0;
 }
 
@@ -41,7 +41,7 @@ body #main #task-input {
   color: #7a7a7a;
   font-style: italic;
   font-size: 16px;
-  padding: 10px 10px;
+  padding: 15px 10px;
   margin: 0;
   width: 100%;
 }
@@ -69,6 +69,11 @@ body #main #tasks li .task-options {
   right: 15px;
   font-weight: 900;
   color: #b2b2b2;
+}
+
+body #main #tasks .completed {
+  background-color: #fcfcfc;
+  color: #7a7a7a;
 }
 
 body #main #clear-btn {
