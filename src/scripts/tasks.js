@@ -34,11 +34,6 @@ let tasks = [
   },
 ];
 
-const local = getLocal();
-if (local !== -1) {
-  tasks = local;
-}
-
 function printTask(task) {
   const objIndex = tasks.findIndex((obj) => obj.index === task.index);
   const li = createElement('li');
@@ -69,7 +64,7 @@ function printTask(task) {
 
 function printTasks() {
   const local = getLocal();
-  if (local !== -1) {
+  if (local) {
     tasks = local;
   }
   tasks.forEach((task) => printTask(task));
