@@ -60,9 +60,25 @@ body {
 
         .task-options {
           position: absolute;
-          right: 15px;
+          right: 35px;
           font-weight: 900;
           color: $cell-color;
+          transition: 0.3s;
+        }
+
+        .task-options:hover {
+          color: #6ebefc;
+        }
+
+        .del-btn {
+          position: absolute;
+          right: 15px;
+          color: $cell-color;
+          transition: 0.3s;
+        }
+
+        .del-btn:hover {
+          color: #f37171;
         }
       }
 
@@ -74,13 +90,18 @@ body {
 
     #clear-btn {
       border: none;
-      background-color: #f8f8f8;
+      background-color: #f3f1f1;
       border-bottom: 0.2px solid $cell-color;
       box-sizing: border-box;
       font-size: 16px;
       font-weight: 300;
       color: $second-text;
       padding: 15px;
+      transition: 0.3s;
+    }
+
+    #clear-btn:hover {
+      opacity: 0.7;
     }
   }
 }

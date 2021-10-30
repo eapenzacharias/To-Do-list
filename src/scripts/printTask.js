@@ -1,5 +1,32 @@
 import { getLocal, updateLocal } from './localStorage.js';
 import { getElement, createElement } from './queries.js';
+import newIndex from './updateIndex.js';
+
+function deleteTask(task, tasks) {
+  const objIndex = tasks.findIndex((obj) => obj.index === task.index);
+  const local = getLocal();
+  if (local) {
+    tasks = local;
+  }
+  tasks.splice(objIndex, 1);
+  newIndex(tasks);
+}
+
+function editTask(menu, description, tasks, objIndex) {
+  const local = getLocal();
+  if (local) {
+    tasks = local;
+  }
+  if (menu.innerHTML === '⋮') {
+    menu.innerHTML = '&#10004;';
+    description.contentEditable = true;
+  } else {
+    menu.innerHTML = '⋮';
+    description.contentEditable = false;
+    tasks[objIndex].description = description.innerText;
+  }
+  updateLocal(tasks);
+}
 
 function printTask(task, tasks) {
   const objIndex = tasks.findIndex((obj) => obj.index === task.index);
@@ -28,23 +55,19 @@ function printTask(task, tasks) {
   menu.innerHTML = '⋮';
   menu.className = 'task-options';
   menu.addEventListener('click', () => {
-    const local = getLocal();
-    if (local) {
-      tasks = local;
-    }
-    if (menu.innerHTML === '⋮') {
-      menu.innerHTML = '&#10004;';
-      description.contentEditable = true;
-    } else {
-      menu.innerHTML = '⋮';
-      description.contentEditable = false;
-      tasks[objIndex].description = description.innerText;
-    }
-    updateLocal(tasks);
+    editTask(menu, description, tasks, objIndex);
+  });
+  const delBtn = createElement('span');
+  delBtn.innerHTML = '&#10005;';
+  delBtn.className = 'del-btn';
+  delBtn.addEventListener('click', () => {
+    deleteTask(task, tasks);
+    delBtn.parentElement.remove(delBtn);
   });
   li.appendChild(done);
   li.appendChild(description);
   li.appendChild(menu);
+  li.appendChild(delBtn);
   getElement('#tasks').appendChild(li);
 }
 
