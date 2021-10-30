@@ -17,7 +17,7 @@ function getTask(tasks, text) {
   } else {
     taskInput.value = '';
     tasks.push({
-      index: tasks[tasks.length - 1].index + 1,
+      index: tasks.length + 1,
       description: text,
       completed: false,
     });
