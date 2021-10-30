@@ -1,72 +1,37 @@
-import { updateLocal, getLocal } from './localStorage.js';
-import { createElement, getElement } from './queries.js';
+import { getLocal, updateLocal } from './localStorage.js';
+import printTask from './printTask.js';
+import { getElement } from './queries.js';
 
-let tasks = [
-  {
-    index: 1,
-    description: 'Lorem 1 ipsum dolor sit amet.',
-    completed: true,
-  },
-  {
-    index: 2,
-    description: 'Lorem 2 ipsum dolor sit amet.',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Lorem 3 ipsum dolor sit amet.',
-    completed: true,
-  },
-  {
-    index: 4,
-    description: 'Lorem 4 ipsum dolor sit amet.',
-    completed: false,
-  },
-  {
-    index: 5,
-    description: 'Lorem 5 ipsum dolor sit amet.',
-    completed: true,
-  },
-  {
-    index: 6,
-    description: 'Lorem 6 ipsum dolor sit amet.',
-    completed: false,
-  },
-];
+const taskInput = getElement('#task-input');
 
-function printTask(task) {
-  const objIndex = tasks.findIndex((obj) => obj.index === task.index);
-  const li = createElement('li');
-  const done = createElement('input');
-  done.type = 'checkbox';
-  done.checked = task.completed;
-  if (task.completed) li.classList.add('completed');
-  done.addEventListener('change', () => {
-    li.classList.toggle('completed');
-    if (done.checked) {
-      tasks[objIndex].completed = true;
-      updateLocal(tasks);
-    } else {
-      tasks[objIndex].completed = false;
-      updateLocal(tasks);
+function getTask(tasks) {
+  if (taskInput.value === null) {
+    taskInput.placeholder = 'Please enter a valid task title';
+  } else if (tasks.length === 0) {
+    tasks.push({
+      index: 1,
+      description: taskInput.value,
+      completed: false,
+    });
+  } else {
+    tasks.push({
+      index: tasks[tasks.length - 1].index + 1,
+      description: taskInput.value,
+      completed: false,
+    });
+  }
+  printTask(tasks[tasks.length - 1], tasks);
+  taskInput.value = '';
+  updateLocal(tasks);
+}
+
+function updateTasks(tasks) {
+  taskInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      getTask(tasks);
     }
   });
-  const description = createElement('span');
-  description.innerHTML = task.description;
-  const menu = createElement('span');
-  menu.innerHTML = '⋮';
-  menu.className = 'task-options';
-  li.appendChild(done);
-  li.appendChild(description);
-  li.appendChild(menu);
-  getElement('#tasks').appendChild(li);
+  return tasks;
 }
 
-function printTasks() {
-  const local = getLocal();
-  if (local) {
-    tasks = local;
-  }
-  tasks.forEach((task) => printTask(task));
-}
-export default printTasks;
+export default updateTasks;
