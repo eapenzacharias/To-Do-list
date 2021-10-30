@@ -17,7 +17,6 @@ function printTasks() {
 }
 
 function taskFilter(list) {
-  console.log('filtering');
   const local = getLocal();
   if (local) {
     list = local;

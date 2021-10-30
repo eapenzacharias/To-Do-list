@@ -1,4 +1,4 @@
-import { updateLocal } from './localStorage';
+import { updateLocal } from './localStorage.js';
 
 function newIndex(tasks) {
   for (let i = 0; i < tasks.length; i += 1) {
