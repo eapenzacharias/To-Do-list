@@ -27,6 +27,21 @@ function printTask(task, tasks) {
   const menu = createElement('span');
   menu.innerHTML = '⋮';
   menu.className = 'task-options';
+  menu.addEventListener('click', () => {
+    const local = getLocal();
+    if (local) {
+      tasks = local;
+    }
+    if (menu.innerHTML === '⋮') {
+      menu.innerHTML = '&#10004;';
+      description.contentEditable = true;
+    } else {
+      menu.innerHTML = '⋮';
+      description.contentEditable = false;
+      tasks[objIndex].description = description.innerText;
+    }
+    updateLocal(tasks);
+  });
   li.appendChild(done);
   li.appendChild(description);
   li.appendChild(menu);
