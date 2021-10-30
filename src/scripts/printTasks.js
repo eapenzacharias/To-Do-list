@@ -1,7 +1,8 @@
-import { getLocal, updateLocal } from './localStorage.js';
+import { getLocal } from './localStorage.js';
 import printTask from './printTask.js';
 import { getElement } from './queries.js';
 import updateTasks from './tasks.js';
+import newIndex from './updateIndex.js';
 
 let tasks = [];
 
@@ -16,13 +17,14 @@ function printTasks() {
 }
 
 function taskFilter(list) {
+  console.log('filtering');
   const local = getLocal();
   if (local) {
     list = local;
     tasks = local;
   }
   const filtered = list.filter((task) => !task.completed);
-  updateLocal(filtered);
+  newIndex(filtered);
   printTasks();
 }
 

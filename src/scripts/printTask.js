@@ -1,4 +1,4 @@
-import { updateLocal } from './localStorage.js';
+import { getLocal, updateLocal } from './localStorage.js';
 import { getElement, createElement } from './queries.js';
 
 function printTask(task, tasks) {
@@ -10,6 +10,10 @@ function printTask(task, tasks) {
   if (task.completed) li.classList.add('completed');
   done.addEventListener('change', () => {
     li.classList.toggle('completed');
+    const local = getLocal();
+    if (local) {
+      tasks = local;
+    }
     if (done.checked) {
       tasks[objIndex].completed = true;
       updateLocal(tasks);
