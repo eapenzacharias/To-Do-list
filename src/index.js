@@ -1,6 +1,5 @@
 import './style/style.css';
-import printTasks from './scripts/printTasks.js';
-import filterBtn from './scripts/filter';
+import { printTasks, filterBtn } from './scripts/printTasks.js';
 
 printTasks();
 filterBtn();

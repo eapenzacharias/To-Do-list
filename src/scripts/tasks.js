@@ -4,31 +4,42 @@ import { getElement } from './queries.js';
 
 const taskInput = getElement('#task-input');
 
-function getTask(tasks) {
-  if (taskInput.value === null) {
+function getTask(tasks, text) {
+  if (text.length === 0) {
     taskInput.placeholder = 'Please enter a valid task title';
   } else if (tasks.length === 0) {
+    taskInput.value = '';
     tasks.push({
       index: 1,
-      description: taskInput.value,
+      description: text,
       completed: false,
     });
   } else {
+    taskInput.value = '';
     tasks.push({
       index: tasks[tasks.length - 1].index + 1,
-      description: taskInput.value,
+      description: text,
       completed: false,
     });
   }
+  updateLocal(tasks);
   printTask(tasks[tasks.length - 1], tasks);
   taskInput.value = '';
-  updateLocal(tasks);
 }
 
 function updateTasks(tasks) {
   taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-      getTask(tasks);
+      if (taskInput.value.length > 0) {
+        const local = getLocal();
+        if (local) {
+          tasks = local;
+        } else {
+          tasks = [];
+        }
+        getTask(tasks, taskInput.value);
+        taskInput.value = '';
+      }
     }
   });
   return tasks;

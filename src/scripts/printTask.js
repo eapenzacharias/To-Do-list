@@ -1,5 +1,5 @@
-import { updateLocal } from './localStorage';
-import { getElement, createElement } from './queries';
+import { updateLocal } from './localStorage.js';
+import { getElement, createElement } from './queries.js';
 
 function printTask(task, tasks) {
   const objIndex = tasks.findIndex((obj) => obj.index === task.index);
