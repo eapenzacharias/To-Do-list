@@ -64,11 +64,37 @@ body #main #tasks li input {
   margin-right: 15px;
 }
 
+body #main #tasks li .task-text {
+  min-width: 70%;
+  padding: 5px 0 2px 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 body #main #tasks li .task-options {
   position: absolute;
-  right: 15px;
+  right: 35px;
   font-weight: 900;
   color: #b2b2b2;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body #main #tasks li .task-options:hover {
+  color: #6ebefc;
+}
+
+body #main #tasks li .del-btn {
+  position: absolute;
+  right: 15px;
+  color: #b2b2b2;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body #main #tasks li .del-btn:hover {
+  color: #f37171;
 }
 
 body #main #tasks .completed {
@@ -78,7 +104,7 @@ body #main #tasks .completed {
 
 body #main #clear-btn {
   border: none;
-  background-color: #f8f8f8;
+  background-color: #f3f1f1;
   border-bottom: 0.2px solid #b2b2b2;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -86,4 +112,10 @@ body #main #clear-btn {
   font-weight: 300;
   color: #7a7a7a;
   padding: 15px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+body #main #clear-btn:hover {
+  opacity: 0.7;
 }
