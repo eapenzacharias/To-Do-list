@@ -3,20 +3,24 @@ import { getElement, createElement } from './queries.js';
 import newIndex from './updateIndex.js';
 
 function deleteTask(task, tasks) {
-  const objIndex = tasks.findIndex((obj) => obj.index === task.index);
   const local = getLocal();
   if (local) {
     tasks = local;
+    tasks = newIndex(tasks);
   }
+  const objIndex = tasks.findIndex((obj) => obj.index === task.index);
   tasks.splice(objIndex, 1);
   newIndex(tasks);
+  window.location.reload();
 }
 
-function editTask(menu, description, tasks, objIndex) {
+function editTask(menu, description, tasks, task) {
   const local = getLocal();
   if (local) {
     tasks = local;
+    tasks = newIndex(tasks);
   }
+  const objIndex = tasks.findIndex((obj) => obj.index === task.index);
   if (menu.innerHTML === '⋮') {
     menu.innerHTML = '&#10004;';
     description.contentEditable = true;
@@ -28,8 +32,23 @@ function editTask(menu, description, tasks, objIndex) {
   updateLocal(tasks);
 }
 
-function printTask(task, tasks) {
+function changeStatus(done, tasks, task) {
+  const local = getLocal();
+  if (local) {
+    tasks = local;
+    tasks = newIndex(tasks);
+  }
   const objIndex = tasks.findIndex((obj) => obj.index === task.index);
+  if (done.checked) {
+    tasks[objIndex].completed = true;
+    updateLocal(tasks);
+  } else {
+    tasks[objIndex].completed = false;
+    updateLocal(tasks);
+  }
+}
+
+function printTask(task, tasks) {
   const li = createElement('li');
   const done = createElement('input');
   done.type = 'checkbox';
@@ -37,17 +56,7 @@ function printTask(task, tasks) {
   if (task.completed) li.classList.add('completed');
   done.addEventListener('change', () => {
     li.classList.toggle('completed');
-    const local = getLocal();
-    if (local) {
-      tasks = local;
-    }
-    if (done.checked) {
-      tasks[objIndex].completed = true;
-      updateLocal(tasks);
-    } else {
-      tasks[objIndex].completed = false;
-      updateLocal(tasks);
-    }
+    changeStatus(done, tasks, task);
   });
   const description = createElement('span');
   description.innerHTML = task.description;
@@ -55,7 +64,7 @@ function printTask(task, tasks) {
   menu.innerHTML = '⋮';
   menu.className = 'task-options';
   menu.addEventListener('click', () => {
-    editTask(menu, description, tasks, objIndex);
+    editTask(menu, description, tasks, task);
   });
   const delBtn = createElement('span');
   delBtn.innerHTML = '&#10005;';
