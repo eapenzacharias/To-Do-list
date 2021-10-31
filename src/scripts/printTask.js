@@ -60,6 +60,7 @@ function printTask(task, tasks) {
   });
   const description = createElement('span');
   description.innerHTML = task.description;
+  description.className = 'task-text';
   const menu = createElement('span');
   menu.innerHTML = '⋮';
   menu.className = 'task-options';

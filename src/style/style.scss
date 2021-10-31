@@ -58,6 +58,12 @@ body {
           margin-right: 15px;
         }
 
+        .task-text {
+          min-width: 70%;
+          padding: 5px 0 2px 0;
+          display: inline-flex;
+        }
+
         .task-options {
           position: absolute;
           right: 35px;
